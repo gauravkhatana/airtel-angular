@@ -1,11 +1,10 @@
-
-<div class="app app-sidebar-fixed"> 
+<div class="app app-sidebar-fixed">
   <!-- sidebar.component.html -->
   <div id="sidebar" class="app-sidebar" data-bs-theme="dark">
     <div class="scrollbar-container app-sidebar-content ps">
       <div class="menu">
         <div class="menu-item d-flex">
-          <a class="app-sidebar-minify-btn  ms-2" (click)="toggleSidebar($event)" >
+          <a class="app-sidebar-minify-btn  ms-2" (click)="toggleSidebar($event)">
             <img src="/assets/img/call-register/menu.svg" alt="minify-button" />
           </a>
         </div>
@@ -13,7 +12,7 @@
 
       <div class="menu">
         <div class="menu-item" [ngClass]="{'active': isActive('')}">
-          <a aria-current="page" class="menu-link" >
+          <a aria-current="page" class="menu-link">
             <div class="menu-icon">
               <i class="fa-regular fa-bookmark"></i>
             </div>
@@ -21,7 +20,7 @@
           </a>
         </div>
         <div class="menu-item" [ngClass]="{'active': isActive('')}">
-          <a aria-current="page" class="menu-link" >
+          <a aria-current="page" class="menu-link">
             <div class="menu-icon">
               <i class="fa-solid fa-clock-rotate-left"></i>
             </div>
@@ -39,19 +38,24 @@
     </div>
   </div>
 
-  <div class="app-content"> 
+  <div class="app-content">
     <div class="map-box">
-      <button class="btn btn-primary"  type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+      <!-- <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample"
+        aria-controls="offcanvasExample">
         Button with data-bs-target
-      </button>
+      </button> -->
+
+
       <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
-        <div class="offcanvas-header"> 
+        <div class="offcanvas-header">
           <ul class="nav nav-tabs" id="myTab" role="tablist">
             <li class="nav-item">
-              <a class="nav-link" [ngClass]="{'active': selectedTabIndex === 0}" (click)="selectedTabIndex = 0">Router Details</a>
+              <a class="nav-link" [ngClass]="{'active': selectedTabIndex === 0}" (click)="selectedTabIndex = 0">Router
+                Details</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" [ngClass]="{'active': selectedTabIndex === 1}" (click)="selectedTabIndex = 1">Defect Analysis</a>
+              <a class="nav-link" [ngClass]="{'active': selectedTabIndex === 1}" (click)="selectedTabIndex = 1">Defect
+                Analysis</a>
             </li>
           </ul>
           <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
@@ -67,18 +71,15 @@
                       <label class="label-text m-auto">
                         {{ field.label }}
                       </label>
-                      <input
-                        type="text"
-                        class="form-control d-flex customer-remarks"
-                        placeholder=" "
-                      />
+                      <input type="text" class="form-control d-flex customer-remarks" placeholder=" " />
                     </div>
                     <div class="col-12 mb-2">
                       <div class="accordion" id="accordionExample">
                         <div class="card">
                           <div class="card-header" id="headingOne">
                             <h5 class="mb-0">
-                              <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                              <button class="btn btn-link" type="button" data-toggle="collapse"
+                                data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                                 <div class="circle me-2">
                                   <i class="fa-solid fa-wifi"></i>
                                 </div>
@@ -86,7 +87,8 @@
                               </button>
                             </h5>
                           </div>
-                          <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                          <div id="collapseOne" class="collapse show" aria-labelledby="headingOne"
+                            data-parent="#accordionExample">
                             <div class="card-body">
                               <div class="d-flex align-items-center mb-3" *ngFor="let node of effectiveNodes">
                                 <button class="circle blue me-2"></button>
@@ -109,7 +111,7 @@
                 </div>
               </div>
             </div>
-  
+
             <div class="tab-pane fade" [ngClass]="{'show active': selectedTabIndex === 1}">
               <div class="tree">
                 <ul [ngClass]="{'fault': fault}">
@@ -172,114 +174,84 @@
       </div>
     </div>
 
-      <div class="theme-toggle-on-map" [ngClass]="{'active': context.expand}">
-        <div
-          (click)="toggleExpand($event)"
-          class="theme-collapse-btn-map pulse-button"
-        >
-        
-        </div>
-      </div>
-      <div id="nav-map" class="d-flex align-items-center">
-        <div class="buttons d-flex">
-          <button class="btn" [ngClass]="{'active': !inputValue}">
-            Dive In
-          </button>
-          <div class="form-check form-switch d-flex align-items-center">
-            <input
-              class="form-check-input"
-              type="checkbox"
-              id="flexSwitchCheckDefault"
-              [checked]="inputValue"
-              (change)="handleChange($event)"
-            />
-          </div>
-          <button class="btn" [ngClass]="{'active': inputValue}">
-            Detailed View
-          </button>
-        </div>
+    <div class="theme-toggle-on-map" [ngClass]="{'active': context.expand}">
+      <div (click)="toggleExpand($event)" class="theme-collapse-btn-map pulse-button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample"
+      aria-controls="offcanvasExample">
 
-        <div class="search">
-          <i class="fa fa-search" aria-hidden="true"></i>
-          <input type="text" placeholder="search" />
-          <i class="fa fa-close"></i>
-        </div>
-
-        <div class="end d-flex gap-2">
-          <button
-            class="btn btn-e"
-            [ngClass]="{'active': activeButton === 1}"
-            (click)="handleToggle(1)"
-          >
-            RSU
-            <i class="fa fa-close close" [ngClass]="{'d-inline': activeButton === 1, 'd-none': activeButton !== 1}"></i>
-          </button>
-          <button
-            class="btn btn-e"
-            [ngClass]="{'active': activeButton === 2}"
-            (click)="handleToggle(2)"
-          >
-            ODF
-            <i class="fa fa-close close" [ngClass]="{'d-inline': activeButton === 2, 'd-none': activeButton !== 2}"></i>
-          </button>
-          <button
-            class="btn btn-e"
-            [ngClass]="{'active': activeButton === 3}"
-            (click)="handleToggle(3)"
-          >
-            FAT
-            <i class="fa fa-close close" [ngClass]="{'d-inline': activeButton === 3, 'd-none': activeButton !== 3}"></i>
-          </button>
-          <button
-            class="btn btn-e"
-            [ngClass]="{'active': activeButton === 4}"
-            (click)="handleToggle(4)"
-          >
-            <i class="fa-solid fa-wifi"></i>DSL
-            <i class="fa fa-close close" [ngClass]="{'d-inline': activeButton === 4, 'd-none': activeButton !== 4}"></i>
-          </button>
-          <div class="dropdown">
-            <button
-              class="btn btn-e btn-secondary dropdown-toggle"
-              [ngClass]="{'active': activeButton === 5}"
-              (click)="handleToggle(5)"
-              type="button"
-              id="dropdownMenuButton"
-              data-bs-toggle="dropdown"
-              aria-haspopup="true"
-              aria-expanded="false"
-            >
-            </button>
-            <div class="dropdown-menu mt-2" aria-labelledby="dropdownMenuButton">
-              <a class="dropdown-item" href="#">
-                Reports
-              </a>
-              <a class="dropdown-item" href="#">
-                Lorem Ipsum
-              </a>
-              <a class="dropdown-item" href="#">
-                Lorem Ipsum
-              </a>
-            </div>
-          </div>
-        </div>
       </div>
-      <div class="map-container"></div>
     </div>
+    <div id="nav-map" class="d-flex align-items-center">
+      <div class="buttons d-flex">
+        <button class="btn" [ngClass]="{'active': !inputValue}">
+          Dive In
+        </button>
+        <div class="form-check form-switch d-flex align-items-center">
+          <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" [checked]="inputValue"
+            (change)="handleChange($event)" />
+        </div>
+        <button class="btn" [ngClass]="{'active': inputValue}">
+          Detailed View
+        </button>
+      </div>
+
+      <div class="search">
+        <i class="fa fa-search" aria-hidden="true"></i>
+        <input type="text" placeholder="search" />
+        <i class="fa fa-close"></i>
+      </div>
+
+      <div class="end d-flex gap-2">
+        <button class="btn btn-e" [ngClass]="{'active': activeButton === 1}" (click)="handleToggle(1)">
+          RSU
+          <i class="fa fa-close close" [ngClass]="{'d-inline': activeButton === 1, 'd-none': activeButton !== 1}"></i>
+        </button>
+        <button class="btn btn-e" [ngClass]="{'active': activeButton === 2}" (click)="handleToggle(2)">
+          ODF
+          <i class="fa fa-close close" [ngClass]="{'d-inline': activeButton === 2, 'd-none': activeButton !== 2}"></i>
+        </button>
+        <button class="btn btn-e" [ngClass]="{'active': activeButton === 3}" (click)="handleToggle(3)">
+          FAT
+          <i class="fa fa-close close" [ngClass]="{'d-inline': activeButton === 3, 'd-none': activeButton !== 3}"></i>
+        </button>
+        <button class="btn btn-e" [ngClass]="{'active': activeButton === 4}" (click)="handleToggle(4)">
+          <i class="fa-solid fa-wifi"></i>DSL
+          <i class="fa fa-close close" [ngClass]="{'d-inline': activeButton === 4, 'd-none': activeButton !== 4}"></i>
+        </button>
+        <div class="dropdown">
+          <button class="btn btn-e btn-secondary dropdown-toggle" [ngClass]="{'active': activeButton === 5}"
+            (click)="handleToggle(5)" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+          </button>
+          <div class="dropdown-menu mt-2" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" href="#">
+              Reports
+            </a>
+            <a class="dropdown-item" href="#">
+              Lorem Ipsum
+            </a>
+            <a class="dropdown-item" href="#">
+              Lorem Ipsum
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="map-container"></div>
   </div>
+</div>
 
 
-    <!-- theme-panel.component.html -->
-  <div [ngClass]="{'theme-panel': true, 'active': context.expand}">
+<!-- theme-panel.component.html
+<div [ngClass]="{'theme-panel': true, 'active': context.expand}">
   <div class="theme-panel-content" data-scrollbar="true" data-height="100%">
     <div class="mx-4 my-3">
       <div class="close" (click)="toggleExpandTheme($event)">
         <i class="fa-solid fa-x"></i>
       </div>
       <div class="container">
-        
-       
+
+
       </div>
     </div>
   </div>
-</div>
+</div> -->
