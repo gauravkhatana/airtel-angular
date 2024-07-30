@@ -17,12 +17,16 @@ export class AppComponent {
   activeButton = 0;
   selectedTabIndex = 0;
   fault = false;
+  searchActive = false;
 
   constructor(private router: Router) {}
 
   // Check if the current route matches the provided path
   isActive(path: string): boolean {
     return this.router.url === path;
+  }
+  toggleSearch(event: Event): void {
+    this.searchActive = !this.searchActive;
   }
 
   toggleExpand(event: Event): void {
@@ -56,6 +60,15 @@ export class AppComponent {
 
   // Sample node items under each effective node
   nodeItems = [
+    { name: '045215728380_wifi' },
+    { name: '045215728381_wifi' },
+    { name: '045215728382_wifi' },
+    { name: '045215728380_wifi' },
+    { name: '045215728381_wifi' },
+    { name: '045215728382_wifi' },
+    { name: '045215728380_wifi' },
+    { name: '045215728381_wifi' },
+    { name: '045215728382_wifi' },
     { name: '045215728380_wifi' },
     { name: '045215728381_wifi' },
     { name: '045215728382_wifi' }
