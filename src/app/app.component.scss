@@ -466,6 +466,10 @@
     }
 }
 
+.dropdown-toggle::after{
+    display: none;
+}
+
 
 
 
@@ -701,48 +705,7 @@
         }
     }
     
-    .dropdown-crms {
-        .dropdown-menu {
-            width: 100%;
-            border-radius: 4px;
-            border: 1px solid #8891AA;
-            background: #FFF;
-            padding: 0px 4px;
-            overflow-y: auto;
-            max-height: 300px;
-    
-            .dropdown-item {
-                color: #121C2D;
-                font-size: 14px;
-                font-weight: 600;
-                line-height: 30px;
-            }
-    
-            .form-check {
-                color: #121C2D;
-            }
-        }
-    
-        .dropdown-toggle:after {
-            border-bottom: 0;
-            border-left: .3em solid #0000;
-            border-right: .3em solid #0000;
-            border-top: .3em solid;
-            content: "";
-            display: inline-block;
-            margin-left: .255em;
-            vertical-align: .255em;
-        }
-    
-        .cross-btn{
-            margin-left: 5px;
-            color: #283897;
-            font-size: 14px;
-            font-weight: 700;
-            cursor: pointer;
-        }
-    }
-    
+  
     // This is a common element used across all elements
     label {
         color: #121C2D;

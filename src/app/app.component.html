@@ -165,10 +165,10 @@
     </div>
 
     <div class="theme-toggle-on-map" [ngClass]="{'active': context.expand}">
-      <div (click)="toggleExpand($event)" class="theme-collapse-btn-map pulse-button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample"
+      <button type="button" [disabled]="!inputValue" (click)="toggleExpand($event)" class="theme-collapse-btn-map pulse-button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample"
       aria-controls="offcanvasExample">
 
-      </div>
+      </button>
     </div>
     <div id="nav-map" class="d-flex align-items-center">
       <div class="buttons d-flex">
