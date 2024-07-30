@@ -15,6 +15,8 @@ export class AppComponent {
   context = { expand: false };
   inputValue = false;
   activeButton = 0;
+  selectedTabIndex = 0;
+  fault = false;
 
   constructor(private router: Router) {}
 
@@ -36,10 +38,6 @@ export class AppComponent {
     this.activeButton = this.activeButton === buttonNumber ? 0 : buttonNumber;
   }
 
-  context2 = { expand: false };
-  selectedTabIndex = 0;
-  fault = false;
-
   fields = [
     { label: 'Node Name:' },
     { label: 'Alarm Type:' },
@@ -53,8 +51,7 @@ export class AppComponent {
   // Sample effective nodes
   effectiveNodes = [
     { name: '012367078_DSL' },
-    { name: '012367079_DSL' },
-    { name: '012367080_DSL' }
+   
   ];
 
   // Sample node items under each effective node

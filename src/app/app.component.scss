@@ -9,77 +9,27 @@
     z-index: 7;
     border-right: 1px solid #E1E3EA;
     border-left: 1px solid #E1E3EA;
-    &.menu {
-
-
-        &.menu-caret {
-            display: block;
-            width: (20px);
-            text-align: center;
-            font-size: 16px;
-            border: none;
-            color: #283897;
-
-
-
-            &:before {
-                content: '\f054';
-                display: block;
-                text-align: center;
-                opacity: 1;
-                transition: all .2s linear;
+    .menu {
+        &:first-child{
+            .menu-item {
+                margin: 15px 15px 0;
 
             }
+
         }
 
-        &.menu-search {
-            padding: 1rem;
-
-            &+.menu-item {
-                padding-top: 0;
-            }
-
-            &.form-control {
-                background: none;
-                border: none;
-                padding-left: 0;
-                padding-right: 0;
-                border-bottom: 1px solid rgba(green, .2);
-                color: yello;
-                border-radius: 0;
-
-                &:focus {
-                    border-color: pink;
-                    box-shadow: none;
-                }
-            }
-        }
-
-        &.active:not(.closed):not(.closing),
-        &.expanding,
-        &.expand {
-            &>a {
-                &.menu-caret {
-                    &:before {
-                        opacity: 1.0;
-
-
-                    }
-                }
-            }
-        }
-
-        &.menu-item {
+        .menu-item {
             position: relative;
+            
 
-            &.menu-link {
-                padding: 7px 20px;
+            .menu-link {
+                padding: 14px 26px;
                 line-height: 20px;
                 text-decoration: none;
                 display: flex;
                 align-items: center;
                 font-weight: 500;
-                height: 64px;
+                height: fit-content;
                 justify-content: center;
                 align-items: center;
                 text-align: start;
@@ -89,10 +39,9 @@
                 margin: 10px 8px;
                 padding-left: 0px;
 
-                &.menu-text {
+                .menu-text {
                     flex: 1;
                     color: #2A295C;
-                    font-family: "Open Sans";
                     font-size: 13px;
                     font-style: normal;
                     font-weight: 600;
@@ -102,7 +51,7 @@
 
                 }
 
-                &.menu-badge {
+                .menu-badge {
                     padding: 0 1.5rem;
                     background: grey;
                     color: darkgreen;
@@ -111,7 +60,7 @@
                     border-radius: 1rem;
                 }
 
-                &.menu-label {
+                .menu-label {
                     padding: 1rem;
                     font-size: 75%;
                     font-weight: 600;
@@ -130,11 +79,11 @@
                 &:hover,
                 &:focus {
                     background: none;
-                    // color: var(--#{prefix}app-sidebar-menu-link-hover-color);
+                    color: lightblue;
                 }
             }
 
-            &.menu-icon {
+            .menu-icon {
                 display: flex;
                 align-items: center;
                 justify-content: center;
@@ -148,7 +97,7 @@
                 // margin-bottom: app-sidebar-menu-icon-margin-y;
 
 
-                & img {
+                img {
                     max-width: 100%;
                     max-height: 100%;
                 }
@@ -156,7 +105,7 @@
 
             }
 
-            &.menu-icon-img {
+            .menu-icon-img {
                 margin-top: (3px);
                 margin-bottom: (3px);
                 width: (24px);
@@ -173,7 +122,7 @@
 
 
 
-                & img {
+                img {
                     max-width: 100%;
                     max-height: 100%;
                     display: block;
@@ -184,8 +133,8 @@
 
 
             // menu-item stars
-            &.menu-item {
-                &.menu-link {
+            .menu-item {
+                .menu-link {
                     // padding: (3px) (20px) (3px) (15px);
                     padding: 0;
                     padding-bottom: 12px !important;
@@ -232,6 +181,7 @@
                     width: (2px);
                     background: blue;
                     opacity: 0.5;
+                    
 
 
                 }
@@ -273,11 +223,8 @@
                 &.active {
                     &>.menu-link {
                         background: none;
-                        color: var(--#{prefix}app-sidebar-component-color);
+                        color: blueviolet;
                     }
-
-
-
                 }
 
             }
@@ -291,8 +238,8 @@
             &>.menu-link {
                 position: relative;
                 z-index: 10;
-                // color: var(--#{prefix}app-sidebar-component-active-color);
-                // background-color: var(--#{prefix}app-sidebar-component-active-bg);
+                color: lightcoral;
+                background-color: darkcyan;
 
 
 
@@ -313,19 +260,38 @@
     position: fixed;
 }
 
+.app-sidebar-minified{
+    .menu-text{
+        display: block;;
+    }
+    .menu-icon{
+        display: inline;
+    }
+}
+
+
 .app-sidebar-fixed.app-sidebar-minified .app-sidebar {
     width: 80px;
     padding: 3px;
     border-right: 1px solid #E1E3EA;
     border-left: 1px solid #E1E3EA;
+   
 }
 
 .app-sidebar-fixed.app-sidebar-minified .app-content {
+    width: calc(100% - 80px);
     margin-left: 80px;
+    #nav-map{
+        width: calc(100% - 80px);
+    }
 }
 
 .app-content {
+    width: calc(100% - 220px);
     margin-left: 220px;
+    #nav-map{
+        width: calc(100% - 220px);
+    }
 }
 
 .app-sidebar.app-sidebar-content {
@@ -362,7 +328,7 @@
 
             &.active {
                 &>.menu-link {
-                    // border-color: var(--#{prefix}app-sidebar-component-active-bg);
+                    border-color: lightblue;
                 }
             }
         }
@@ -474,6 +440,7 @@
 }
 
 .map-box {
+    width: 100%;
     position: relative;
 }
 
@@ -512,7 +479,6 @@
     padding: 20px 60px;
     justify-content: space-between;
     gap: 24px;
-    // font-family: Manrope;
 
     .buttons {
         border-radius: 2rem;
@@ -580,8 +546,16 @@
         display: flex;
         gap: 12px;
 
+        .dropdown-menu{
+            position: fixed;
+            right: 10px;
+        }
+
         .btn-e,
         .btn {
+            display: flex;
+            gap: 2px;
+            align-items: center;
             padding: 4px 8px;
             border-radius: 1rem;
             border: none;
@@ -680,16 +654,16 @@
 
 
 .theme-panel {
-    position: fixed;
-    width: 400px;
-    right: -400px;
-    top: 0;
-    bottom: 0;
-    z-index: 4;
-    background: lightblue;
-    transition: right .2s linear;
-    border-radius: 2rem 0 0 2rem;
-    transition: all .6s ease-in-out;
+    // position: fixed;
+    // width: 400px;
+    // right: -400px;
+    // top: 0;
+    // bottom: 0;
+    // z-index: 4;
+    // background: lightblue;
+    // transition: right .2s linear;
+    // border-radius: 2rem 0 0 2rem;
+    // transition: all .6s ease-in-out;
 
 
 
@@ -699,6 +673,88 @@
         top: 26px;
         font-size: 14px;
         cursor: pointer;
+    }
+
+    .nav-tabs {
+        border-bottom: 1.5px solid #DEE0E7;
+    
+        .nav-link {
+            color: #2A295C;
+            font-weight: 400;
+            font-size: 16px;
+    
+            &.active {
+                border-bottom: 3px solid #2A295C;
+                background-color: transparent;
+                font-weight: 600;
+            }
+        }
+    }
+    
+    .card {
+        border-radius: 8px;
+        background: #FFF;
+        box-shadow: 1px 0px 6px 0px rgba(40, 56, 151, 0.45);
+    
+        .box-shadow {
+            box-shadow: 0px 4px 8px rgba(40, 56, 151, 0.10);
+        }
+    }
+    
+    .dropdown-crms {
+        .dropdown-menu {
+            width: 100%;
+            border-radius: 4px;
+            border: 1px solid #8891AA;
+            background: #FFF;
+            padding: 0px 4px;
+            overflow-y: auto;
+            max-height: 300px;
+    
+            .dropdown-item {
+                color: #121C2D;
+                font-size: 14px;
+                font-weight: 600;
+                line-height: 30px;
+            }
+    
+            .form-check {
+                color: #121C2D;
+            }
+        }
+    
+        .dropdown-toggle:after {
+            border-bottom: 0;
+            border-left: .3em solid #0000;
+            border-right: .3em solid #0000;
+            border-top: .3em solid;
+            content: "";
+            display: inline-block;
+            margin-left: .255em;
+            vertical-align: .255em;
+        }
+    
+        .cross-btn{
+            margin-left: 5px;
+            color: #283897;
+            font-size: 14px;
+            font-weight: 700;
+            cursor: pointer;
+        }
+    }
+    
+    // This is a common element used across all elements
+    label {
+        color: #121C2D;
+        font-size: 14px;
+        font-weight: 600;
+    }
+
+    .label-text {
+        color: #2A295C;
+        font-size: 14px;
+        font-weight: 600;
+        line-height: 20px;
     }
 
     .form-control {
