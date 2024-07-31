@@ -10,7 +10,6 @@ import { Router, RouterOutlet } from '@angular/router';
   styleUrl: './app.component.scss',
 })
 export class AppComponent {
-
   title = 'airtel-map-temp';
   context = { expand: false };
   inputValue = false;
@@ -49,14 +48,11 @@ export class AppComponent {
     { label: 'SLA:' },
     { label: 'Alarm Status:' },
     { label: 'Occurred At:' },
-    { label: 'Cleared On:' }
+    { label: 'Cleared On:' },
   ];
 
   // Sample effective nodes
-  effectiveNodes = [
-    { name: '012367078_DSL' },
-   
-  ];
+  effectiveNodes = [{ name: '012367078_DSL' }];
 
   // Sample node items under each effective node
   nodeItems = [
@@ -71,7 +67,7 @@ export class AppComponent {
     { name: '045215728382_wifi' },
     { name: '045215728380_wifi' },
     { name: '045215728381_wifi' },
-    { name: '045215728382_wifi' }
+    { name: '045215728382_wifi' },
   ];
 
   // Sample OLTs with nested ODFs and other details
@@ -85,65 +81,49 @@ export class AppComponent {
           hasDetails: true,
           fats: [
             { name: 'FAT 1', hasDetails: true, items: ['Item A', 'Item B'] },
-            { name: 'FAT 2', hasDetails: false, items: [] }
+            { name: 'FAT 2', hasDetails: false, items: [] },
           ],
-          otherOdFs: [
-            {
-              name: 'ODF 2',
-              hasDetails: true,
-              fats: [
-                { name: 'FAT 3', hasDetails: true, items: ['Item C'] }
-              ],
-              otherOdFs: []
-            },
-            {
-              name: 'ODF 3',
-              hasDetails: false,
-              fats: [],
-              otherOdFs: []
-            }
-          ]
+        },
+        {
+          name: 'ODF 2',
+          hasDetails: true,
+          fats: [{ name: 'FAT 3', hasDetails: true, items: ['Item C'] }],
+          otherOdFs: [],
+        },
+        {
+          name: 'ODF 3',
+          hasDetails: false,
+          fats: [],
+          otherOdFs: [],
         },
         {
           name: 'ODF 4',
           hasDetails: false,
           fats: [],
-          otherOdFs: []
-        }
-      ],
-      otherOdFs: [
+          otherOdFs: [],
+        },
         {
           name: 'ODF 5',
           hasDetails: true,
-          fats: [
-            { name: 'FAT 4', hasDetails: false, items: [] }
-          ],
-          otherOdFs: []
-        }
-      ]
+          fats: [{ name: 'FAT 4', hasDetails: false, items: [] }],
+          otherOdFs: [],
+        },
+      ],
     },
     {
       name: 'OLT 2',
       hasDetails: true,
-      odfs: []
-    }
+      odfs: [],
+    },
   ];
-  
 
   toggleExpandTheme(event: Event) {
     this.context.expand = !this.context.expand;
   }
 
-
-  toggleSidebar(event:Event){
-    document.getElementsByClassName("app")[0].classList.toggle('app-sidebar-minified');
-
+  toggleSidebar(event: Event) {
+    document
+      .getElementsByClassName('app')[0]
+      .classList.toggle('app-sidebar-minified');
   }
-
- 
-  
 }
-
-
-
-

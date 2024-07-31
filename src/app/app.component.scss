@@ -45,7 +45,7 @@
                     color: #2A295C;
                     font-size: 13px;
                     font-style: normal;
-                    font-weight: 600;
+                    font-weight: 400;
                     line-height: normal;
                     text-transform: capitalize;
                     margin-left: 12px;
@@ -192,7 +192,10 @@
 .app-content {
     width: calc(100% - 220px);
     margin-left: 220px;
-
+    .form-switch-divein .form-check-input:checked {
+        background-color:#354ACB;
+        border-color: #354ACB !important;
+    }
     #nav-map {
         width: calc(100% - 220px);
     }
@@ -350,15 +353,12 @@ ul {
             position: relative;
             background: white;
             height: 26px !important;
-            color: #F03800;
-            font-weight: 600;
+            color: #F03800 ;
+            font-weight: 400;
 
 
 
-            &:hover {
-                background: none;
-                color: lightcoral;
-            }
+          
 
             &:after {
                 content: '';
@@ -367,7 +367,7 @@ ul {
                 top: (8px);
                 width: (11px);
                 height: (2px);
-                background: #121C2D;
+                background: #ccc;
 
 
             }
@@ -382,7 +382,7 @@ ul {
             height: 40px;
             bottom: 0;
             width: (2px);
-            background: #121C2D;
+            background: #ccc;
             // opacity: 0.5;
 
 
@@ -394,11 +394,11 @@ ul {
             left: 0;
             width: (7px);
             height: (7px);
-            border: #007aff;
+            border: #ccc;
             top: (8px);
             margin-top: (-2px);
             z-index: 10;
-            background: #121C2D;
+            background: #ccc;
             border-radius: (4px);
             // opacity: 0.5;
 
@@ -426,12 +426,12 @@ ul {
         &.active {
             &>.menu-link {
                 background: none;
-                color: #121C2D;
+                color: #ccc;
             }
 
 
             &:after {
-                border-color: grey;
+                border-color: #ccc;
             }
         }
 
@@ -486,7 +486,7 @@ ul {
         line-height: (30px);
         border-radius: 50%;
         padding: 1px;
-        border: #007aff solid 2px;
+        border: #354ACB solid 2px;
         font-size: (18px);
         background: white;
         text-align: center;
@@ -540,14 +540,18 @@ ul {
             scale: 1.4;
 
             .form-check-input {
+                border-color: #354ACB;
+                outline: 0;
+                box-shadow: none;
 
                 &:focus {
                     border-color: #354ACB;
                     outline: 0;
                     box-shadow: none
-                }&:checked{
+                }
+                &:checked{
                     border-color: #354ACB;
-                    background: #354ACB;
+                    background-color: #354ACB;
                 }
             }
         }
@@ -561,11 +565,15 @@ ul {
             padding-right: 20px;
 
             &.active {
-                font-weight: 700;
+                font-weight: 600;
             }
         }
     }
 
+    .df{
+        display: flex;
+        align-items: center;
+    }
 
     .search {
         position: relative;
@@ -599,7 +607,7 @@ ul {
         width: 100%;
         height: fit-content;
         position: absolute;
-        // border: #007aff solid 2px;
+        // border: #354ACB solid 2px;
         left: 0;
         top: 32px;
         padding: 26px 0 0;
@@ -647,11 +655,8 @@ ul {
             &.active {
                 background-color: #354ACB;
                 color: white;
-
                 svg {
-                    path {
-                        fill: white;
-                    }
+                    filter: brightness(100);
                 }
 
                 i {
@@ -728,8 +733,6 @@ ul {
 
 // Theme pannel css
 
-
-
 .theme-panel {
     // position: fixed;
     // width: 400px;
@@ -751,14 +754,19 @@ ul {
         font-size: 14px;
         cursor: pointer;
     }
+    .offcanvas-header{
+        padding-left: 0;
+    }
 
     .nav-tabs {
         border-bottom: 1.5px solid #DEE0E7;
 
         .nav-link {
+            border: none;
             color: #2A295C;
             font-weight: 400;
             font-size: 16px;
+            padding-left: 0;
 
             &.active {
                 border: none;
@@ -773,7 +781,9 @@ ul {
     .card {
         border-radius: 8px;
         background: #FFF;
-
+        .circle{
+            height: 30px;
+        }
         .box-shadow {
             box-shadow: 0px 4px 8px rgba(40, 56, 151, 0.10);
         }
@@ -805,8 +815,8 @@ ul {
         border-radius: 50%;
         height: 30px;
         font-size: 16px;
-        color: white;
-        background-color: #007aff;
+        color: transparent;
+        background-color: #354ACB;
         aspect-ratio: 1/1;
 
         &.danger {
@@ -816,9 +826,13 @@ ul {
         }
 
         &.blue {
-            background-color: #FFFFFF;
-            border: solid 2px #007aff;
+            
+            background-color: #354ACB;
+            border: solid 2px #354ACB;
             height: 25px;
+            svg{
+                filter: brightness(100);
+            }
         }
     }
 
@@ -827,9 +841,9 @@ ul {
 
         .hd {
             color: (#343A40);
-            font-size: 14px;
+            font-size: 16px;
             font-style: normal;
-            font-weight: 700;
+            font-weight: 600;
             line-height: 100%;
         }
 
@@ -839,10 +853,18 @@ ul {
             }
         }
 
-
-
-        .blue:hover {
-            background-color: #007aff;
+        .accordion-button {
+            background-color: #F8F9FA;
+            &:focus {
+                box-shadow: none;
+            }&:not(.collapsed){
+                background-color: none;
+                box-shadow: none;
+            }
+        }
+        .card-header{
+            padding-top: 0.7rem;
+            padding-bottom: 0.7rem;
         }
 
         .accordion-item {
@@ -857,21 +879,6 @@ ul {
                     margin-bottom: 4px;
                 }
             }
-
-            .accordion-button {
-                background-color: #F8F9FA;
-
-                &:not(.collapsed) {
-                    color: green;
-                    background-color: #F8F9FA;
-                    box-shadow: inset 0 2px 0 0 #007aff;
-                }
-
-                &:focus {
-                    box-shadow: none;
-                }
-            }
-
 
         }
 
@@ -894,7 +901,7 @@ ul {
 
         .hd {
             font-size: 16px;
-            font-weight: 700;
+            font-weight: 600;
         }
 
 
@@ -948,10 +955,7 @@ ul {
                     z-index: 0;
                 }
 
-                &:first-child:after {
-                    top: -4px;
-                    height: 42px;
-                }
+               
 
                 &.parent:after {
                     top: 12px;
@@ -1021,6 +1025,11 @@ ul {
                                 background: #98A0A5;
                             }
 
+                            &:first-child:after {
+                                top: -4px;
+                                height: 50px;
+                            }
+
                             &:last-child:after {
                                 content: none;
                                 height: calc(100% + 5px);
@@ -1049,7 +1058,7 @@ ul {
         line-height: (30px);
         border-radius: 50%;
         padding: 1px;
-        border: #007aff solid 2px;
+        border: #354ACB solid 2px;
         font-size: (18px);
         color: red;
         background: violet;
