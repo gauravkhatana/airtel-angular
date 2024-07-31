@@ -17,13 +17,24 @@ export class AppComponent {
   selectedTabIndex = 0;
   fault = false;
   searchActive = false;
+  items= ["OLT", "ODF", "FAT", "DSL", "RSU"];
+  filteredItems:string[] = [];
 
   constructor(private router: Router) {}
+
+  filterSearch(filter:string){
+    this.filteredItems = this.items.filter(item => item.toLocaleLowerCase().indexOf(filter.toLocaleLowerCase()) !== -1); 
+    if (this.filteredItems.length<1 ){
+      this.filteredItems=["Nothing Found"];
+    }
+  }
+  
 
   // Check if the current route matches the provided path
   isActive(path: string): boolean {
     return this.router.url === path;
   }
+
   toggleSearch(event: Event): void {
     this.searchActive = !this.searchActive;
   }

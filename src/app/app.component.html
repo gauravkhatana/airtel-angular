@@ -240,15 +240,12 @@
             stroke="#8B8A8D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
         </svg>
 
-        <input type="text" placeholder="search" (click)="toggleSearch($event)" />
+        <input type="text" #input placeholder="search" (focus)="toggleSearch($event)" (keyup)="filterSearch(input.value)" />
         <hr>
         <div class="search-autocomplete" [class.d-none]="!searchActive">
           <div class="divider"></div>
-          <ul class="list-unstyled">
-            <li>lorem ipsum</li>
-            <li>lorem ipsum</li>
-            <li>lorem ipsum</li>
-            <li>lorem ipsum</li>
+          <ul class="list-unstyled" bs-autocomplete-menu>
+            <li *ngFor="let item of filteredItems">{{item}}</li> 
           </ul>
 
         </div>
