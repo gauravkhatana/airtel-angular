@@ -55,7 +55,6 @@
                 .menu-badge {
                     padding: 0 1.5rem;
                     background: grey;
-                    color: darkgreen;
                     font-weight: 500;
                     font-size: (10px);
                     border-radius: 1rem;
@@ -73,14 +72,12 @@
                     border-radius: border-radius;
 
 
-
-
                 }
 
                 &:hover,
                 &:focus {
                     background: none;
-                    color: lightblue;
+                   
                 }
             }
 
@@ -138,14 +135,7 @@
             &>.menu-link {
                 position: relative;
                 z-index: 10;
-                color: lightcoral;
-                background-color: darkcyan;
-
-
-
-
-
-
+              
                 &.menu-badge {
                     background: rgba(black, .65);
                 }
@@ -608,6 +598,8 @@ ul {
         height: fit-content;
         position: absolute;
         // border: #354ACB solid 2px;
+        color: #808080;
+        font-weight: 400;
         left: 0;
         top: 32px;
         padding: 26px 0 0;
