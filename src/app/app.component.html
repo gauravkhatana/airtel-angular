@@ -232,7 +232,7 @@
         </button>
       </div>
 
-      <div class="search">
+      <div class="search" [class.border-plane]="searchActive">
         <!-- <img src="assets/bookmark.svg" alt=""> -->
         <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 16 17" fill="none">
           <path
@@ -240,15 +240,19 @@
             stroke="#8B8A8D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
         </svg>
 
-        <input type="text" #input placeholder="search" (focus)="toggleSearch($event)" (keyup)="filterSearch(input.value)" />
-        <hr>
+        <input type="text" #input [(ngModel)]="searchInput" placeholder="search" (focus)="searchActive = true" 
+        (blur)="searchActive = false" (keyup)="filterSearch(input.value)" />
+        
         <div class="search-autocomplete" [class.d-none]="!searchActive">
           <div class="divider"></div>
           <ul class="list-unstyled" bs-autocomplete-menu>
-            <li *ngFor="let item of filteredItems">{{item}}</li> 
+            <li><a href="#0"><span class="search-item">{{toBeSearched}}</span> in <span class="search-domain">Servers</span></a></li>
+            <li><a href="#0"><span class="search-item">{{toBeSearched}}</span> in <span class="search-domain">Address Book</span></a></li>
+            <li><a href="#0"><span class="search-item">{{toBeSearched}}</span> in <span class="search-domain">Latitude & Longitude</span></a></li>
+            <!-- <li *ngFor="let item of filteredItems">value in {{item}}</li>  -->
           </ul>
-
         </div>
+
         <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 14 15" fill="none">
           <path d="M9.91659 4.58325L4.08325 10.4166M4.08325 4.58325L9.91659 10.4166" stroke="#8B8A8D" stroke-width="1.5"
             stroke-linecap="round" stroke-linejoin="round" />

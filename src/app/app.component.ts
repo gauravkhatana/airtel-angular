@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router, RouterOutlet } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet],
+  imports: [CommonModule, RouterOutlet,FormsModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
@@ -17,26 +18,29 @@ export class AppComponent {
   selectedTabIndex = 0;
   fault = false;
   searchActive = false;
-  items= ["OLT", "ODF", "FAT", "DSL", "RSU"];
+  searchInput = "";
+  toBeSearched = "Type somthing to search";
+  items= [""];
   filteredItems:string[] = [];
 
   constructor(private router: Router) {}
 
   filterSearch(filter:string){
-    this.filteredItems = this.items.filter(item => item.toLocaleLowerCase().indexOf(filter.toLocaleLowerCase()) !== -1); 
-    if (this.filteredItems.length<1 ){
-      this.filteredItems=["Nothing Found"];
+    if(this.searchInput.length<1){
+      this.toBeSearched = "Type somthing to search";
+    }else{
+      this.toBeSearched = this.searchInput;
     }
+
+    // this.filteredItems = this.items.filter(item => item.toLocaleLowerCase().indexOf(filter.toLocaleLowerCase()) !== -1); 
+    // if (this.filteredItems.length<1 ){
+    //   this.filteredItems=["Nothing Found"];
+    // }
   }
   
-
   // Check if the current route matches the provided path
   isActive(path: string): boolean {
     return this.router.url === path;
-  }
-
-  toggleSearch(event: Event): void {
-    this.searchActive = !this.searchActive;
   }
 
   toggleExpand(event: Event): void {
